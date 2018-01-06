@@ -73,7 +73,7 @@ public class MainActivity extends Activity {
         @Override
         public void run() {
             System.out.print("UpdateThread");
-            Log.i("UpdateThread", "UpdateThread");
+            Log.i(tag, "UpdateThread");
             handler.postDelayed(updateThread, 3000);
         }
     };
