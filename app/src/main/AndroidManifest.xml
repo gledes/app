@@ -17,7 +17,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".ProgressBarActivity" />
-        <activity android:name=".HadlerThreadActivity"></activity>
+        <activity android:name=".HadlerThreadActivity" />
+        <activity android:name=".sqlite.SQLiteActivity"></activity>
     </application>
 
 </manifest>

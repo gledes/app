@@ -8,6 +8,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.jin.myapplication.sqlite.SQLiteActivity;
+
 public class MainActivity extends Activity {
 
     public static final String tag = "MyApp";
@@ -19,6 +21,8 @@ public class MainActivity extends Activity {
     private Button progress;
 
     private Button handleThreadTest;
+
+    private Button sqliteTest;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,8 +56,15 @@ public class MainActivity extends Activity {
             }
         });
 
-
-
+        sqliteTest = (Button)findViewById(R.id.sqliteTest);
+        sqliteTest.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent();
+                intent.setClass(MainActivity.this, SQLiteActivity.class);
+                MainActivity.this.startActivity(intent);
+            }
+        });
     }
 
     class StartButtonListener implements View.OnClickListener {
