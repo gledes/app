@@ -16,7 +16,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ProgressBarActivity"></activity>
+        <activity android:name=".ProgressBarActivity" />
+        <activity android:name=".HadlerThreadActivity"></activity>
     </application>
 
 </manifest>

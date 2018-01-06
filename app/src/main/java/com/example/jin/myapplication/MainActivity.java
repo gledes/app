@@ -2,14 +2,15 @@ package com.example.jin.myapplication;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.os.Handler;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
 public class MainActivity extends Activity {
+
+    public static final String tag = "MyApp";
 
     private Button startButton;
 
@@ -42,13 +43,14 @@ public class MainActivity extends Activity {
         });
 
         handleThreadTest = (Button)findViewById(R.id.handerThreadTest);
-//        handleThreadTest.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent = new Intent();
-//                intent.setClass(MainActivity.this, HanderThreadTest.class);
-//            }
-//        });
+        handleThreadTest.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent();
+                intent.setClass(MainActivity.this, HadlerThreadActivity.class);
+                MainActivity.this.startActivity(intent);
+            }
+        });
 
 
 
