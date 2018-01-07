@@ -7,9 +7,12 @@ import android.content.UriMatcher;
 import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteQuery;
+import android.database.sqlite.SQLiteQueryBuilder;
 import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.text.TextUtils;
 import android.util.Log;
 
 import com.example.jin.myapplication.MainActivity;
@@ -56,7 +59,30 @@ public class FirstContentProvider extends ContentProvider {
     @Nullable
     @Override
     public Cursor query(@NonNull Uri uri, @Nullable String[] projection, @Nullable String selection, @Nullable String[] selectionArgs, @Nullable String sortOrder) {
-        return null;
+
+        SQLiteQueryBuilder qb = new SQLiteQueryBuilder();
+        switch (uriMatcher.match(uri)) {
+            case USER_COLLECTION:
+                qb.setTables(FirstProviderMetaData.UserTableMetaData.TABLE_NAME);
+                qb.setProjectionMap(userProjectionMap);
+                break;
+            case USER_SINGLE:
+                qb.setTables(FirstProviderMetaData.UserTableMetaData.TABLE_NAME);
+                qb.setProjectionMap(userProjectionMap);
+                qb.appendWhere(FirstProviderMetaData.UserTableMetaData._ID + "=" + uri.getPathSegments().get(1));
+                break;
+        }
+        String orderBy;
+        if (TextUtils.isEmpty(sortOrder)) {
+            orderBy = FirstProviderMetaData.UserTableMetaData.DEFAULT_SORT_ORDER;
+        } else {
+            orderBy = sortOrder;
+        }
+
+        SQLiteDatabase db = databaseHelper.getReadableDatabase();
+        Cursor c = qb.query(db, projection, selection, selectionArgs, null, null, sortOrder);
+        c.setNotificationUri(getContext().getContentResolver(), uri);
+        return c;
     }
 
     @Nullable
