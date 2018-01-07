@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.jin.myapplication.broadcast.BroadcastActivity;
 import com.example.jin.myapplication.contentprovider.ContentProviderActivity;
 import com.example.jin.myapplication.sqlite.SQLiteActivity;
 
@@ -26,6 +27,8 @@ public class MainActivity extends Activity {
     private Button sqliteTest;
 
     private Button contentProviderTest;
+
+    private Button broadcast;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,6 +78,16 @@ public class MainActivity extends Activity {
             public void onClick(View v) {
                 Intent intent = new Intent();
                 intent.setClass(MainActivity.this, ContentProviderActivity.class);
+                MainActivity.this.startActivity(intent);
+            }
+        });
+
+        broadcast = (Button)findViewById(R.id.broadcast);
+        broadcast.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent();
+                intent.setClass(MainActivity.this, BroadcastActivity.class);
                 MainActivity.this.startActivity(intent);
             }
         });

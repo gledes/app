@@ -19,10 +19,21 @@
         <activity android:name=".ProgressBarActivity" />
         <activity android:name=".HadlerThreadActivity" />
         <activity android:name=".sqlite.SQLiteActivity" />
-        <activity android:name=".contentprovider.ContentProviderActivity"></activity>
+        <activity android:name=".contentprovider.ContentProviderActivity" />
+        <activity android:name=".broadcast.BroadcastActivity"></activity>
+
         <provider
-            android:authorities="jin.cp.FirstContentProvider"
-            android:name=".contentprovider.FirstContentProvider"></provider>
+            android:name=".contentprovider.FirstContentProvider"
+            android:authorities="jin.cp.FirstContentProvider" />
+
+        <receiver android:name=".broadcast.TestReceiver">
+            <!--
+            <intent-filter>
+                <action android:name="android.intent.action.EDIT" />
+            </intent-filter>
+            -->
+        </receiver>
+
     </application>
 
 </manifest>
