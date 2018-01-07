@@ -33,7 +33,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
 
         Log.i(MainActivity.tag, "create a Database");
-        db.execSQL("create table user(id int, name varcher(20))");
+//        db.execSQL("create table user(id int, name varcher(20))");
+        db.execSQL("create table users(_id INTEGER PRIMARY KEY AUTOINCREMENT, name varcher(20))");
     }
 
     @Override

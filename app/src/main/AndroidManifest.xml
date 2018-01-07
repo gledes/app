@@ -18,7 +18,11 @@
         </activity>
         <activity android:name=".ProgressBarActivity" />
         <activity android:name=".HadlerThreadActivity" />
-        <activity android:name=".sqlite.SQLiteActivity"></activity>
+        <activity android:name=".sqlite.SQLiteActivity" />
+        <activity android:name=".contentprovider.ContentProviderActivity"></activity>
+        <provider
+            android:authorities="jin.cp.FirstContentProvider"
+            android:name=".contentprovider.FirstContentProvider"></provider>
     </application>
 
 </manifest>

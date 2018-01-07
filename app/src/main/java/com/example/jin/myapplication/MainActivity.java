@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.jin.myapplication.contentprovider.ContentProviderActivity;
 import com.example.jin.myapplication.sqlite.SQLiteActivity;
 
 public class MainActivity extends Activity {
@@ -23,6 +24,8 @@ public class MainActivity extends Activity {
     private Button handleThreadTest;
 
     private Button sqliteTest;
+
+    private Button contentProviderTest;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,6 +65,16 @@ public class MainActivity extends Activity {
             public void onClick(View v) {
                 Intent intent = new Intent();
                 intent.setClass(MainActivity.this, SQLiteActivity.class);
+                MainActivity.this.startActivity(intent);
+            }
+        });
+
+        contentProviderTest = (Button)findViewById(R.id.contentProvider);
+        contentProviderTest.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent();
+                intent.setClass(MainActivity.this, ContentProviderActivity.class);
                 MainActivity.this.startActivity(intent);
             }
         });
