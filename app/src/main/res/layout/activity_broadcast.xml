@@ -11,5 +11,16 @@
         android:text="广播"
         />
 
+    <Button
+        android:id="@+id/registerBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="绑定监听器"/>
+
+    <Button
+        android:id="@+id/unRegisterBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="解除绑定监听器"/>
 
 </LinearLayout>
