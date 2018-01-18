@@ -20,13 +20,15 @@
         <activity android:name=".HadlerThreadActivity" />
         <activity android:name=".sqlite.SQLiteActivity" />
         <activity android:name=".contentprovider.ContentProviderActivity" />
-        <activity android:name=".broadcast.BroadcastActivity"></activity>
+        <activity android:name=".broadcast.BroadcastActivity" />
+        <activity android:name=".service.ServiceActivity" />
 
         <provider
             android:name=".contentprovider.FirstContentProvider"
             android:authorities="jin.cp.FirstContentProvider" />
 
         <receiver android:name=".broadcast.TestReceiver">
+
             <!--
             <intent-filter>
                 <action android:name="android.intent.action.EDIT" />
@@ -34,6 +36,10 @@
             -->
         </receiver>
 
+        <service
+            android:name=".service.FirstService"
+            android:enabled="true"
+            android:exported="true"></service>
     </application>
 
 </manifest>

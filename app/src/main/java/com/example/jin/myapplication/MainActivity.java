@@ -10,6 +10,7 @@ import android.widget.Button;
 
 import com.example.jin.myapplication.broadcast.BroadcastActivity;
 import com.example.jin.myapplication.contentprovider.ContentProviderActivity;
+import com.example.jin.myapplication.service.ServiceActivity;
 import com.example.jin.myapplication.sqlite.SQLiteActivity;
 
 public class MainActivity extends Activity {
@@ -29,6 +30,8 @@ public class MainActivity extends Activity {
     private Button contentProviderTest;
 
     private Button broadcast;
+
+    private Button service;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -88,6 +91,16 @@ public class MainActivity extends Activity {
             public void onClick(View v) {
                 Intent intent = new Intent();
                 intent.setClass(MainActivity.this, BroadcastActivity.class);
+                MainActivity.this.startActivity(intent);
+            }
+        });
+
+        service = (Button)findViewById(R.id.service);
+        service.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent();
+                intent.setClass(MainActivity.this, ServiceActivity.class);
                 MainActivity.this.startActivity(intent);
             }
         });
