@@ -12,6 +12,7 @@ import com.example.jin.myapplication.broadcast.BroadcastActivity;
 import com.example.jin.myapplication.contentprovider.ContentProviderActivity;
 import com.example.jin.myapplication.service.ServiceActivity;
 import com.example.jin.myapplication.sqlite.SQLiteActivity;
+import com.example.jin.myapplication.webviewfiledemo.WebViewActivity;
 
 public class MainActivity extends Activity {
 
@@ -32,6 +33,8 @@ public class MainActivity extends Activity {
     private Button broadcast;
 
     private Button service;
+
+    private Button webviewTest;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -101,6 +104,16 @@ public class MainActivity extends Activity {
             public void onClick(View v) {
                 Intent intent = new Intent();
                 intent.setClass(MainActivity.this, ServiceActivity.class);
+                MainActivity.this.startActivity(intent);
+            }
+        });
+
+        webviewTest = (Button)findViewById(R.id.webviewTest);
+        webviewTest.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent();
+                intent.setClass(MainActivity.this, WebViewActivity.class);
                 MainActivity.this.startActivity(intent);
             }
         });
