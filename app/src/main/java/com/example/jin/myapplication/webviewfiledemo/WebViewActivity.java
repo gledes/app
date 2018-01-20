@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
+import android.webkit.JavascriptInterface;
 import android.webkit.JsResult;
 import android.webkit.WebChromeClient;
 import android.webkit.WebView;
@@ -13,13 +14,13 @@ import android.widget.Toast;
 
 import com.example.jin.myapplication.R;
 
-@SuppressLint({ "SetJavaScriptEnabled", "JavascriptInterface" })
+//@SuppressLint({ "SetJavaScriptEnabled", "JavascriptInterface" })
 public class WebViewActivity extends Activity {
     private WebView webView;
     private Uri mUri;
     private String url;
     String mUrl1 = "file:///android_asset/html/attack_file.html";
-//    String mUrl2 = "file:///android_asset/html/test.html";
+    String mUrl2 = "file:///android_asset/html/test.html";
 
 
 //    @SuppressLint("JavascriptInterface")
@@ -57,6 +58,8 @@ public class WebViewActivity extends Activity {
 
 
     class JSInterface {
+
+        @JavascriptInterface
         public String onButtonClick(String text) {
             final String str = text;
             runOnUiThread(new Runnable() {
@@ -70,6 +73,7 @@ public class WebViewActivity extends Activity {
             return "This text is returned from Java layer.  js text = " + text;
         }
 
+        @JavascriptInterface
         public void onImageClick(String url, int width, int height) {
             final String str = "onImageClick: text = " + url + "  width = " + width + "  height = " + height;
             Log.i("leehong2", str);
