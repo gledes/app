@@ -2,6 +2,7 @@ package com.example.jin.myapplication.contentprovider;
 
 import android.app.Activity;
 import android.content.ContentValues;
+import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
@@ -17,6 +18,8 @@ public class ContentProviderActivity extends Activity {
     private Button insertButton;
 
     private Button queryButton;
+
+    private Button sendButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +45,17 @@ public class ContentProviderActivity extends Activity {
                 while (c.moveToNext()) {
                     Log.i(MainActivity.tag, "id:" + c.getInt(c.getColumnIndex("_id")) +  " name:" + c.getString(c.getColumnIndex(FirstProviderMetaData.UserTableMetaData.USER_NAME)));
                 }
+            }
+        });
+
+        sendButton = (Button)findViewById(R.id.sendBtn);
+        sendButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Uri uri = Uri.parse("smsto://08613480845903");
+                Intent intent = new Intent(Intent.ACTION_SENDTO, uri);
+                intent.putExtra("sms_body", "the SMS text");
+                startActivity(intent);
             }
         });
     }

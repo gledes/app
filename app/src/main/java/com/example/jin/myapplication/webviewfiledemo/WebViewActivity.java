@@ -12,7 +12,10 @@ import android.webkit.WebChromeClient;
 import android.webkit.WebView;
 import android.widget.Toast;
 
+import com.example.jin.myapplication.MainActivity;
 import com.example.jin.myapplication.R;
+
+import java.util.HashMap;
 
 //@SuppressLint({ "SetJavaScriptEnabled", "JavascriptInterface" })
 public class WebViewActivity extends Activity {
@@ -26,6 +29,7 @@ public class WebViewActivity extends Activity {
 //    @SuppressLint("JavascriptInterface")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Log.i(MainActivity.tag, "WebViewActivity");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_web_view);
         webView = (WebView) findViewById(R.id.webview);
@@ -42,6 +46,7 @@ public class WebViewActivity extends Activity {
         });
 
         Intent i = getIntent();
+        Log.i(MainActivity.tag, "url:" + url);
         if (i != null) {
             mUri = i.getData();
         }
@@ -49,10 +54,12 @@ public class WebViewActivity extends Activity {
             url = mUri.toString();
         }
         if (url != null) {
+            Log.i(MainActivity.tag, "loadUrl:" + url);
             webView.loadUrl(url);
+        } else {
+            webView.loadUrl(mUrl1);
         }
 
-        webView.loadUrl(mUrl1);
     }
 
 
