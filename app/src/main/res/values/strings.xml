@@ -3,4 +3,5 @@
     <string name="start_btn">start</string>
     <string name="end_btn">end</string>
     <string name="title_activity_hander_thread_test">HanderThreadTest</string>
+    <string name="local_service_started">local_service_started</string>
 </resources>

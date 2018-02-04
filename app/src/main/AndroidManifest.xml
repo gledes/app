@@ -22,6 +22,11 @@
         <activity android:name=".contentprovider.ContentProviderActivity" />
         <activity android:name=".broadcast.BroadcastActivity" />
         <activity android:name=".service.ServiceActivity" />
+        <activity android:name=".webviewfiledemo.WebViewActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+            </intent-filter>
+        </activity>
 
         <provider
             android:name=".contentprovider.FirstContentProvider"
@@ -41,7 +46,7 @@
             android:enabled="true"
             android:exported="true" />
 
-        <activity android:name=".webviewfiledemo.WebViewActivity"></activity>
+        <activity android:name=".contentprovider.ListActivity"></activity>
     </application>
 
 </manifest>
