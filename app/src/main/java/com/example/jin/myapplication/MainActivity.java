@@ -10,6 +10,7 @@ import android.widget.Button;
 
 import com.example.jin.myapplication.broadcast.BroadcastActivity;
 import com.example.jin.myapplication.contentprovider.ContentProviderActivity;
+import com.example.jin.myapplication.notification.NotificationUtils;
 import com.example.jin.myapplication.service.ServiceActivity;
 import com.example.jin.myapplication.sqlite.SQLiteActivity;
 import com.example.jin.myapplication.webviewfiledemo.WebViewActivity;
@@ -117,6 +118,11 @@ public class MainActivity extends Activity {
                 MainActivity.this.startActivity(intent);
             }
         });
+    }
+
+    public void Notification(View view) {
+        NotificationUtils notificationUtils = new NotificationUtils(this);
+        notificationUtils.sendNotification("测试标题", "测试内容");
     }
 
     class StartButtonListener implements View.OnClickListener {
