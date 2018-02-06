@@ -59,4 +59,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Web View"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Notification"
+        android:onClick="Notification"/>
 </LinearLayout>
