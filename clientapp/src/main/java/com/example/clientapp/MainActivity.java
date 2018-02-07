@@ -11,18 +11,21 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.mark.aidl.AidlRemote;
 import com.mark.aidl.Person;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
 
     private final static String TAG = MainActivity.class.getSimpleName();
 
     Button btnAdd;
+    TextView hello;
     List<Person> mPersons;
     // 声明AidlRemote接口
     AidlRemote mAidlRemote;
@@ -34,12 +37,14 @@ public class MainActivity extends AppCompatActivity {
             // 当服务绑定成功之后会调用此方法，
             // 这里调用AidlRemote.Stub.asInterface静态方法将service参数转成AidlRemote实例
             mAidlRemote = AidlRemote.Stub.asInterface(service);
+            Log.d(TAG, "onServiceConnected");
         }
 
         @Override
         public void onServiceDisconnected(ComponentName name) {
             // 当断开服务时，回收资源
             mAidlRemote = null;
+            Log.d(TAG, "onServiceDisconnected");
         }
     };
 
@@ -58,13 +63,18 @@ public class MainActivity extends AppCompatActivity {
 
     private void initView() {
         btnAdd = (Button) findViewById(R.id.btnAdd);
+        hello = (TextView) findViewById(R.id.hello);
 
         btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 try {
+                    Random rand = new Random();
+                    int age = rand.nextInt(100);
+                    mPersons.add(new Person("person", age));
                     // 计算mPersons中Person的平均年龄
                     float average = mAidlRemote.getAverageAge(mPersons);
+                    hello.setText("平均年龄为：" + average);
                     Log.d(TAG, "平均年龄为：" + average);
                 } catch (RemoteException e) {
                     e.printStackTrace();
