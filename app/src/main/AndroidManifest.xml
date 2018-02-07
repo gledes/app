@@ -46,7 +46,12 @@
             android:enabled="true"
             android:exported="true" />
 
-        <activity android:name=".contentprovider.ListActivity"></activity>
+        <activity android:name=".contentprovider.ListActivity" />
+
+        <service
+            android:name="com.mark.aidl.RemoteService"
+            android:enabled="true"
+            android:exported="true"></service>
     </application>
 
 </manifest>
