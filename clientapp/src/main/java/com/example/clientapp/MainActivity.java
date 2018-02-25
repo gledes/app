@@ -48,6 +48,12 @@ public class MainActivity extends AppCompatActivity {
         }
     };
 
+    protected void messenger(View v) {
+        Intent intent = new Intent();
+        intent.setClass(MainActivity.this, MessengerActivity.class);
+        startActivity(intent);
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
