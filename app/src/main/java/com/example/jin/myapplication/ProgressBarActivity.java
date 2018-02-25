@@ -4,10 +4,15 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
 
+/**
+ * ProgressBar 13集
+ * Handler 14 15集
+ */
 public class ProgressBarActivity extends Activity {
 
     private Button startButton;
@@ -28,9 +33,14 @@ public class ProgressBarActivity extends Activity {
             public void onClick(View v) {
                 progressBar.setVisibility(View.VISIBLE);
                 handler.post(updateThread);
+                Log.i(MainActivity.tag, "main:" + Thread.currentThread().getName());
             }
         });
 
+    }
+
+    public void test(View v) {
+        Log.i(MainActivity.tag, "test:" + Thread.currentThread().getName());
     }
 
     Handler handler = new Handler() {
@@ -39,6 +49,7 @@ public class ProgressBarActivity extends Activity {
         public void handleMessage(Message msg) {
             progressBar.setProgress(msg.arg1);
             handler.post(updateThread);
+            Log.i(MainActivity.tag, "HandleMessage:" + Thread.currentThread().getName());
         }
     };
 
@@ -55,8 +66,10 @@ public class ProgressBarActivity extends Activity {
                 e.printStackTrace();
             }
 
-            handler.sendMessage(msg);
-            if (i == 100) {
+            Log.i(MainActivity.tag, "run:" + Thread.currentThread().getName());
+            if (i <= 100) {
+                handler.sendMessage(msg);
+            } else {
                 handler.removeCallbacks(updateThread);
             }
         }
