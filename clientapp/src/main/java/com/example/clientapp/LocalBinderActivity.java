@@ -10,17 +10,20 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 public class LocalBinderActivity extends AppCompatActivity {
 
+    private LocalService localService;
 
-    private LocalBinder localBinder;
+    private LocalService.LocalBinder localBinder;
 
     private boolean mBound;
 
     private ServiceConnection mConnection = new ServiceConnection() {
         public void onServiceConnected(ComponentName className, IBinder service) {
-            localBinder = (LocalBinder)service;
+            localBinder = (LocalService.LocalBinder)service;
+            localService = localBinder.getService();
             Log.i(MainActivity.TAG, "local binder:" + service);
             mBound = true;
         }
@@ -32,8 +35,8 @@ public class LocalBinderActivity extends AppCompatActivity {
     };
 
     protected void say(View v) {
-        if (localBinder != null) {
-            localBinder.say();
+        if (localService != null) {
+            Toast.makeText(LocalBinderActivity.this, localService.getRandomNumber() + "", Toast.LENGTH_SHORT).show();
         }
 
     }
