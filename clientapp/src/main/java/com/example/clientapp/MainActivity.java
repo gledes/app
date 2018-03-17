@@ -4,6 +4,7 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.os.RemoteException;
@@ -22,7 +23,7 @@ import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
 
-    private final static String TAG = MainActivity.class.getSimpleName();
+    public final static String TAG = MainActivity.class.getSimpleName();
 
     Button btnAdd;
     TextView hello;
@@ -54,13 +55,20 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+
+    protected void localBinderTest(View v) {
+        Intent intent = new Intent();
+        intent.setClass(MainActivity.this, LocalBinderActivity.class);
+        startActivity(intent);
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         // 绑定服务
         bindService();
-
+        SharedPreferences.Editor sharedata = getSharedPreferences("data", 0).edit();
         // 创建Person数据
         mPersons = getPersonList(10);
 

@@ -32,6 +32,13 @@
             android:onClick="messenger"
             android:text="messenger"
             />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="localBinderTest"
+            android:text="Local Binder"/>
+
     </android.support.v7.widget.LinearLayoutCompat>
 
 
