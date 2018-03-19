@@ -32,6 +32,7 @@ public class LocalService extends Service {
         return binder;
     }
 
+
     public int getRandomNumber() {
         return mGenerator.nextInt(100);
     }

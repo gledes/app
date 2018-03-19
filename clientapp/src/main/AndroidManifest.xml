@@ -22,12 +22,13 @@
             android:name=".MessengerService"
             android:enabled="true"
             android:exported="true" />
-
-        <service android:name=".LocalService"
+        <service
+            android:name=".LocalService"
             android:enabled="true"
-            android:exported="true"/>
+            android:exported="true" />
 
-        <activity android:name=".LocalBinderActivity"></activity>
+        <activity android:name=".LocalBinderActivity" />
+        <activity android:name=".AidlActivity"></activity>
     </application>
 
 </manifest>
