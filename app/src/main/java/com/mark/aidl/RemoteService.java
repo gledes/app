@@ -4,6 +4,9 @@ import android.app.Service;
 import android.content.Intent;
 import android.os.IBinder;
 import android.os.RemoteException;
+import android.util.Log;
+
+import com.example.jin.myapplication.MainActivity;
 
 import java.util.List;
 
@@ -20,6 +23,30 @@ public class RemoteService extends Service {
     @Override
     public IBinder onBind(Intent intent) {
         return iBinder;
+    }
+
+    public void onCreate()
+    {
+        Log.e(MainActivity.tag, "onCreate");
+    }
+
+    public void onDestroy()
+    {
+        Log.e(MainActivity.tag, "onDestroy");
+        super.onDestroy();
+    }
+
+
+    public boolean onUnbind(Intent intent)
+    {
+        Log.e(MainActivity.tag, "onUnbind");
+        return super.onUnbind(intent);
+    }
+
+    public void onRebind(Intent intent)
+    {
+        Log.e(MainActivity.tag, "onRebind");
+        super.onRebind(intent);
     }
 
     /**
