@@ -33,9 +33,15 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    protected void messenger(View v) {
+    protected void onMessenger(View v) {
         Intent intent = new Intent();
         intent.setClass(MainActivity.this, MessengerActivity.class);
+        startActivity(intent);
+    }
+
+    protected void onMessengerClient(View v) {
+        Intent intent = new Intent();
+        intent.setClass(MainActivity.this, MessengerClientActivity.class);
         startActivity(intent);
     }
 

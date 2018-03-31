@@ -28,7 +28,8 @@
             android:exported="true" />
 
         <activity android:name=".LocalBinderActivity" />
-        <activity android:name=".AidlActivity"></activity>
+        <activity android:name=".AidlActivity" />
+        <activity android:name=".MessengerClientActivity"></activity>
     </application>
 
 </manifest>

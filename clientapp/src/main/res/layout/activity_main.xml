@@ -21,7 +21,7 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="messenger"
+            android:onClick="onMessenger"
             android:text="messenger"
             />
 
@@ -30,6 +30,12 @@
             android:layout_height="wrap_content"
             android:onClick="localBinderTest"
             android:text="Local Binder"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onMessengerClient"
+            android:text="Messenger Client"/>
 
     </android.support.v7.widget.LinearLayoutCompat>
 
