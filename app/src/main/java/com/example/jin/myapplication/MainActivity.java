@@ -12,6 +12,7 @@ import com.example.jin.myapplication.broadcast.BroadcastActivity;
 import com.example.jin.myapplication.contentprovider.ContentProviderActivity;
 import com.example.jin.myapplication.notification.NotificationUtils;
 import com.example.jin.myapplication.service.ServiceActivity;
+import com.example.jin.myapplication.service.intentservice.IntentServiceActivity;
 import com.example.jin.myapplication.sqlite.SQLiteActivity;
 import com.example.jin.myapplication.webviewfiledemo.WebViewActivity;
 
@@ -118,6 +119,12 @@ public class MainActivity extends Activity {
                 MainActivity.this.startActivity(intent);
             }
         });
+    }
+
+    void intentService(View v) {
+        Intent intent = new Intent();
+        intent.setClass(this, IntentServiceActivity.class);
+        startActivity(intent);
     }
 
     public void Notification(View view) {

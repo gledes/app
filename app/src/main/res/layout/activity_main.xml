@@ -55,6 +55,12 @@
         android:text="Service"/>
 
     <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Intent Service"
+        android:onClick="intentService"/>
+
+    <Button
         android:id="@+id/webviewTest"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

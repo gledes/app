@@ -52,12 +52,33 @@
             android:name="com.mark.aidl.RemoteService"
             android:enabled="true"
             android:exported="true" />
-        <service android:name=".service.MessengerService" android:enabled="true" android:exported="true">
+        <service
+            android:name=".service.MessengerService"
+            android:enabled="true"
+            android:exported="true">
             <intent-filter>
-                <action android:name="com.zhy.aidl.calc"></action>
+                <action android:name="com.zhy.aidl.calc" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </service>
+        <service
+            android:name=".service.intentservice.UploadImgService"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.zhy.blogcodes.intentservice.action.UPLOAD_IMAGE" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </service>
+
+
+        <activity android:name=".service.intentservice.IntentServiceActivity">
+            <intent-filter>
+                <action android:name="com.zhy.blogcodes.intentservice.UPLOAD_RESULT" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
