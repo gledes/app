@@ -16,16 +16,12 @@ import com.example.jin.myapplication.MainActivity;
  */
 public class UploadImgService extends IntentService {
 
-    private static final String ACTION_UPLOAD_IMG = "com.zhy.blogcodes.intentservice.action.UPLOAD_IMAGE";
-    public static final String EXTRA_IMG_PATH = "com.zhy.blogcodes.intentservice.extra.IMG_PATH";
+    private static final String UPLOAD_RESULT = "com.zhy.blogcodes.intentservice.UPLOAD_RESULT";
 
-    public static void startUploadImg(Context context, String path)
-    {
-        Intent intent = new Intent(context, UploadImgService.class);
-        intent.setAction(ACTION_UPLOAD_IMG);
-        intent.putExtra(EXTRA_IMG_PATH, path);
-        context.startService(intent);
-    }
+    private static final String ACTION_UPLOAD_IMG = "com.zhy.blogcodes.intentservice.action.UPLOAD_IMAGE";
+
+    private static final String EXTRA_IMG_PATH = "com.zhy.blogcodes.intentservice.extra.IMG_PATH";
+
 
     public UploadImgService() {
         super("UploadImgService");
@@ -53,7 +49,7 @@ public class UploadImgService extends IntentService {
             //模拟上传耗时
             Thread.sleep(3000);
 
-            Intent intent = new Intent(IntentServiceActivity.UPLOAD_RESULT);
+            Intent intent = new Intent(UPLOAD_RESULT);
             intent.putExtra(EXTRA_IMG_PATH, path);
             sendBroadcast(intent);
 

@@ -14,7 +14,11 @@ import com.example.jin.myapplication.R;
 
 public class IntentServiceActivity extends AppCompatActivity {
 
-    public static final String UPLOAD_RESULT = "com.zhy.blogcodes.intentservice.UPLOAD_RESULT";
+    private static final String UPLOAD_RESULT = "com.zhy.blogcodes.intentservice.UPLOAD_RESULT";
+
+    private static final String ACTION_UPLOAD_IMG = "com.zhy.blogcodes.intentservice.action.UPLOAD_IMAGE";
+
+    private static final String EXTRA_IMG_PATH = "com.zhy.blogcodes.intentservice.extra.IMG_PATH";
 
     private LinearLayout mLyTaskContainer;
 
@@ -34,9 +38,9 @@ public class IntentServiceActivity extends AppCompatActivity {
         @Override
         public void onReceive(Context context, Intent intent)
         {
-            if (intent.getAction() == UPLOAD_RESULT)
+            if (UPLOAD_RESULT.equals(intent.getAction()))
             {
-                String path = intent.getStringExtra(UploadImgService.EXTRA_IMG_PATH);
+                String path = intent.getStringExtra(EXTRA_IMG_PATH);
 
                 handleResult(path);
 
@@ -64,12 +68,20 @@ public class IntentServiceActivity extends AppCompatActivity {
     {
         //模拟路径
         String path = "/sdcard/imgs/" + (++i) + ".png";
-        UploadImgService.startUploadImg(this, path);
+        startUploadImg(path);
 
         TextView tv = new TextView(this);
         mLyTaskContainer.addView(tv);
         tv.setText(path + " is uploading ...");
         tv.setTag(path);
+    }
+
+    public void startUploadImg(String path)
+    {
+        Intent intent = new Intent(this, UploadImgService.class);
+        intent.setAction(ACTION_UPLOAD_IMG);
+        intent.putExtra(EXTRA_IMG_PATH, path);
+        startService(intent);
     }
 
     @Override
