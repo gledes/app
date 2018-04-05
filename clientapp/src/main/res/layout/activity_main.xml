@@ -36,6 +36,11 @@
             android:layout_height="wrap_content"
             android:onClick="onMessengerClient"
             android:text="Messenger Client"/>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Intent Service"
+            android:onClick="intentService"/>
 
     </android.support.v7.widget.LinearLayoutCompat>
 

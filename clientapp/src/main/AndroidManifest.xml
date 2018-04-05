@@ -29,7 +29,13 @@
 
         <activity android:name=".LocalBinderActivity" />
         <activity android:name=".AidlActivity" />
-        <activity android:name=".MessengerClientActivity"></activity>
+        <activity android:name=".MessengerClientActivity" />
+        <activity android:name=".IntentServiceActivity">
+            <intent-filter>
+                <action android:name="com.zhy.blogcodes.intentservice.UPLOAD_RESULT" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
