@@ -78,7 +78,8 @@ public class IntentServiceActivity extends AppCompatActivity {
 
     public void startUploadImg(String path)
     {
-        Intent intent = new Intent(this, UploadImgService.class);
+        Intent intent = new Intent();
+        intent.setPackage("com.example.jin.myapplication");
         intent.setAction(ACTION_UPLOAD_IMG);
         intent.putExtra(EXTRA_IMG_PATH, path);
         startService(intent);
