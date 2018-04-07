@@ -31,6 +31,12 @@
         android:text="Hadler Thread"/>
 
     <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="hadlerThread2"
+        android:text="Hadler Thread2"/>
+
+    <Button
         android:id="@+id/sqliteTest"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

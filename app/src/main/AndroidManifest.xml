@@ -68,15 +68,23 @@
             android:exported="true">
             <intent-filter>
                 <action android:name="com.zhy.blogcodes.intentservice.action.UPLOAD_IMAGE" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </service>
 
-
         <activity android:name=".service.intentservice.IntentServiceActivity">
             <intent-filter>
                 <action android:name="com.zhy.blogcodes.intentservice.UPLOAD_RESULT" />
+
                 <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".hadler.HandlerThread2Activity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
     </application>
