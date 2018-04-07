@@ -50,7 +50,7 @@ public class UploadImgService extends IntentService {
             Thread.sleep(3000);
 
             Intent intent = new Intent(UPLOAD_RESULT);
-            
+
 //            intent.setPackage("com.example.clientapp");
             intent.setPackage("com.example.jin.myapplication");
             intent.putExtra(EXTRA_IMG_PATH, path);
