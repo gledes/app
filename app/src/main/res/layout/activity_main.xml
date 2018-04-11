@@ -77,4 +77,10 @@
         android:layout_height="wrap_content"
         android:text="Notification"
         android:onClick="Notification"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Float Window"
+        android:onClick="floatWindow"/>
 </LinearLayout>
