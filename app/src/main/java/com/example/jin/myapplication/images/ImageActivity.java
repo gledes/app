@@ -30,7 +30,7 @@ public class ImageActivity extends AppCompatActivity {
             Log.d(MainActivity.tag, "READ permission IS NOT granted...");
 
             if (shouldShowRequestPermissionRationale(Manifest.permission.READ_EXTERNAL_STORAGE)) {
-
+                requestPermissions(new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, 1);
                 Log.d(MainActivity.tag, "11111111111111");
             } else {
                 // 0 是自己定义的请求coude
