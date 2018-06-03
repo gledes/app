@@ -33,7 +33,7 @@ public class ImageActivity extends AppCompatActivity {
                 requestPermissions(new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, 1);
                 Log.d(MainActivity.tag, "11111111111111");
             } else {
-                // 0 是自己定义的请求coude
+                // 0 是自己定义的请求code
                 requestPermissions(new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, 1);
                 Log.d(MainActivity.tag, "222222222222");
             }
