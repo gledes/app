@@ -67,6 +67,17 @@ public class WebViewActivity extends Activity {
     class JSInterface {
 
         @JavascriptInterface
+        public void showToast(String text){
+            Toast.makeText(getApplicationContext(), text, Toast.LENGTH_SHORT).show();
+        }
+
+        @JavascriptInterface
+        public void showJsText(String text){
+//            webView.loadUrl("javascript:jsText('"+text+"')");
+            webView.loadUrl("javascript:alert('"+text+"')");
+        }
+
+        @JavascriptInterface
         public String onButtonClick(String text) {
             final String str = text;
             runOnUiThread(new Runnable() {
