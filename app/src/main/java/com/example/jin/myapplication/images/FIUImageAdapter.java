@@ -37,7 +37,7 @@ public class FIUImageAdapter extends BaseAdapter {
 
     private void loadImages() {
         list.clear();
-//        getImages(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, list);
+        getImages(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, list);
         getImages(MediaStore.Images.Media.INTERNAL_CONTENT_URI, list);
         Log.i(MainActivity.tag, "size:" + list.size());
 
