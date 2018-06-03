@@ -12,6 +12,7 @@ import com.example.jin.myapplication.broadcast.BroadcastActivity;
 import com.example.jin.myapplication.contentprovider.ContentProviderActivity;
 import com.example.jin.myapplication.floatwindow.GetFloatWindowDirectlyActivity;
 import com.example.jin.myapplication.hadler.HandlerThread2Activity;
+import com.example.jin.myapplication.images.ImageActivity;
 import com.example.jin.myapplication.notification.NotificationUtils;
 import com.example.jin.myapplication.service.ServiceActivity;
 import com.example.jin.myapplication.service.intentservice.IntentServiceActivity;
@@ -132,6 +133,12 @@ public class MainActivity extends Activity {
     void hadlerThread2(View v) {
         Intent intent = new Intent();
         intent.setClass(this, HandlerThread2Activity.class);
+        startActivity(intent);
+    }
+
+    void imageView(View v) {
+        Intent intent = new Intent();
+        intent.setClass(this, ImageActivity.class);
         startActivity(intent);
     }
 

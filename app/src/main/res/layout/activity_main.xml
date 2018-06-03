@@ -83,4 +83,10 @@
         android:layout_height="wrap_content"
         android:text="Float Window"
         android:onClick="floatWindow"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="ImageView"
+        android:onClick="imageView"/>
 </LinearLayout>
