@@ -9,6 +9,8 @@ import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.database.sqlite.SQLiteQuery;
+import android.database.sqlite.SQLiteQueryBuilder;
 import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -16,6 +18,8 @@ import android.util.Log;
 
 import com.example.jin.myapplication.MainActivity;
 import com.example.jin.myapplication.sqlite.DatabaseHelper;
+
+import java.util.HashMap;
 
 /**
  * Created by jin on 2018/6/3.
@@ -33,13 +37,27 @@ public class NotesContentProvider extends ContentProvider {
 
     private static final String NOTES_TABLE_NAME = "notes";
 
-    private static final UriMatcher uriMatcher = null;
+    private static final UriMatcher uriMatcher;
 
     private static final int NOTES = 1;
 
     private static final int NOTES_ID = 2;
 
+    private static HashMap<String, String> notesProjectionMap;
+
     private DataBaseHepler dataBaseHelper;
+
+    static {
+        uriMatcher = new UriMatcher(UriMatcher.NO_MATCH);
+        uriMatcher.addURI(AUTHORITY, NOTES_TABLE_NAME, NOTES);
+        uriMatcher.addURI(AUTHORITY, NOTES_TABLE_NAME + "/#", NOTES_ID);
+
+        notesProjectionMap = new HashMap<String, String>();
+        notesProjectionMap.put(Note.Notes.NOTE_ID, Note.Notes.NOTE_ID);
+        notesProjectionMap.put(Note.Notes.TEXT, Note.Notes.TEXT);
+        notesProjectionMap.put(Note.Notes.TITLE, Note.Notes.TITLE);
+    }
+
 
     private static class DataBaseHepler extends SQLiteOpenHelper{
 
@@ -71,7 +89,25 @@ public class NotesContentProvider extends ContentProvider {
     @Nullable
     @Override
     public Cursor query(@NonNull Uri uri, @Nullable String[] projection, @Nullable String selection, @Nullable String[] selectionArgs, @Nullable String sortOrder) {
-        return null;
+        SQLiteQueryBuilder qb = new SQLiteQueryBuilder();
+        qb.setTables(NOTES_TABLE_NAME);
+        qb.setProjectionMap(notesProjectionMap);
+
+        switch (uriMatcher.match(uri)) {
+            case NOTES:
+                break;
+            case NOTES_ID:
+                selection = selection + " _id = " + uri.getLastPathSegment();
+                break;
+            default:
+                throw new IllegalArgumentException("Unknow URI " + uri);
+        }
+
+        SQLiteDatabase db = dataBaseHelper.getReadableDatabase();
+        Cursor cursor = qb.query(db, projection, selection, selectionArgs, null, null, sortOrder);
+        cursor.setNotificationUri(getContext().getContentResolver(), uri);
+
+        return cursor;
     }
 
     @Nullable
@@ -113,11 +149,36 @@ public class NotesContentProvider extends ContentProvider {
 
     @Override
     public int delete(@NonNull Uri uri, @Nullable String selection, @Nullable String[] selectionArgs) {
-        return 0;
+        SQLiteDatabase db = dataBaseHelper.getWritableDatabase();
+        switch (uriMatcher.match(uri)) {
+            case NOTES:
+                break;
+            case NOTES_ID:
+                selection = selection + " _id = " + uri.getLastPathSegment();
+                break;
+            default:
+                throw new IllegalArgumentException("Unknow URI " + uri);
+
+        }
+        int count = db.delete(NOTES_TABLE_NAME, selection, selectionArgs);
+        getContext().getContentResolver().notifyChange(uri, null);
+        return count;
     }
 
     @Override
     public int update(@NonNull Uri uri, @Nullable ContentValues values, @Nullable String selection, @Nullable String[] selectionArgs) {
-        return 0;
+        SQLiteDatabase db = dataBaseHelper.getWritableDatabase();
+        int count;
+        switch (uriMatcher.match(uri)) {
+            case NOTES:
+                count = db.update(NOTES_TABLE_NAME, values, selection, selectionArgs);
+                break;
+            default:
+                    throw new IllegalArgumentException("Unknow URI " + uri);
+        }
+        getContext().getContentResolver().notifyChange(uri, null);
+
+
+        return count;
     }
 }
