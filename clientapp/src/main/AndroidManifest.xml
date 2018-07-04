@@ -33,7 +33,15 @@
         <activity android:name=".IntentServiceActivity">
             <intent-filter>
                 <action android:name="com.zhy.blogcodes.intentservice.UPLOAD_RESULT" />
+
                 <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".AccpetActivity">
+            <intent-filter>
+                <action android:name="notes.intent.action.NOTE_VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="vnd.android.cursor.dir/NOTES" />
             </intent-filter>
         </activity>
     </application>
