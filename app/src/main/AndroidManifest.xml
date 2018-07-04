@@ -2,6 +2,15 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.jin.myapplication">
 
+    <permission
+        android:name="com.example.notes.READ_CONRENT"
+        android:protectionLevel="dangerous"></permission>
+    <permission
+        android:name="com.example.notes.WRITE_CONTENT"
+        android:protectionLevel="dangerous"></permission>
+
+    <uses-permission android:name="com.example.notes.READ_CONTENT"/>
+    <uses-permission android:name="com.example.notes.WRITE_CONTENT"/>
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
@@ -35,6 +44,14 @@
         <provider
             android:name=".contentprovider.FirstContentProvider"
             android:authorities="jin.cp.FirstContentProvider" />
+        
+        <provider
+            android:name="com.example.jin.myapplication.contentprovider.NotesContentProvider"
+            android:authorities="com.example.jin.NotesContentProvider"
+            android:readPermission="com.example.notes.READ_CONTENT"
+            android:writePermission="com.example.notes.WRITE_CONTENT"
+            android:exported="true"
+            android:grantUriPermissions="true" />
 
         <receiver android:name=".broadcast.TestReceiver">
 

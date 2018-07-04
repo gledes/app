@@ -24,5 +24,10 @@ public class NoteActivity extends AppCompatActivity {
         Intent intent = new Intent();
         intent.setAction(NOTE_ACTION_VIEW);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+        intent.addFlags(Intent.FLAG_GRANT_WRITE_URI_PERMISSION);
+        intent.setData(uri);
+        startActivity(intent);
+
     }
 }
