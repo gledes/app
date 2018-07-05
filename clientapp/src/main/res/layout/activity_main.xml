@@ -42,6 +42,12 @@
             android:text="Intent Service"
             android:onClick="intentService"/>
 
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="insert Notes"
+            android:onClick="insertNotes"/>
+
     </android.support.v7.widget.LinearLayoutCompat>
 
 

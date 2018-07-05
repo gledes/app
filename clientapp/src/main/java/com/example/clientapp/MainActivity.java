@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.os.RemoteException;
@@ -55,6 +56,16 @@ public class MainActivity extends AppCompatActivity {
     void intentService(View v) {
         Intent intent = new Intent();
         intent.setClass(this, IntentServiceActivity.class);
+        startActivity(intent);
+    }
+
+    void insertNotes(View v) {
+        Intent intent = new Intent();
+//        intent.setClassName("com.example.clientapp", "com.example.clientapp.AccpetActivity");
+        intent.setAction("notes.intent.action.NOTE_VIEW");
+        intent.addCategory("android.intent.category.DEFAULT");
+        Uri data = Uri.parse("content://com.example.jin.NotesContentProvider/notes");
+        intent.setDataAndType(data, "vnd.android.cursor.dir/NOTES");
         startActivity(intent);
     }
 
