@@ -7,6 +7,7 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 
 public class AccpetActivity extends AppCompatActivity {
@@ -37,6 +38,12 @@ public class AccpetActivity extends AppCompatActivity {
             values.put("title", "test2");
             values.put("text", "justfortest2");
             resolver.insert(uri, values);
+        } else {
+            while (cursor.moveToNext()) {
+                Log.i(MainActivity.TAG, "id:" + cursor.getInt(cursor.getColumnIndex("_id")) + " "
+                        + "title:" + cursor.getString(cursor.getColumnIndex("title"))
+                        + "text:" + cursor.getString(cursor.getColumnIndex("text")));
+            }
         }
     }
 
