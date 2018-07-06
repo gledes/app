@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.TextView;
 
 public class AccpetActivity extends AppCompatActivity {
 
@@ -39,12 +40,20 @@ public class AccpetActivity extends AppCompatActivity {
             values.put("text", "justfortest2");
             resolver.insert(uri, values);
         } else {
+
+            TextView result = (TextView) findViewById(R.id.result);
+            StringBuilder cursorResult = new StringBuilder("DB 查询结果：");
+
             while (cursor.moveToNext()) {
-                Log.i(MainActivity.TAG, "id:" + cursor.getInt(cursor.getColumnIndex("_id")) + " "
+                String row = "id:" + cursor.getInt(cursor.getColumnIndex("_id")) + " "
                         + "title:" + cursor.getString(cursor.getColumnIndex("title"))
-                        + "text:" + cursor.getString(cursor.getColumnIndex("text")));
+                        + "text:" + cursor.getString(cursor.getColumnIndex("text"));
+                Log.d(MainActivity.TAG, "DB 查询结果：" + row);
+                cursorResult.append("\n").append(row);
             }
+            result.setText(cursorResult);
         }
+        cursor.close();
     }
 
     public void insertNotes(View view) {
