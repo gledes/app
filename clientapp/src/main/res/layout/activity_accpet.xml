@@ -7,11 +7,25 @@
     tools:context="com.example.clientapp.AccpetActivity">
 
 
-    <Button
+    <android.support.v7.widget.LinearLayoutCompat
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="insert notes"
-        android:onClick="insertNotes"/>
+        android:layout_height="match_parent">
+
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="insert notes"
+            android:onClick="insertNotes"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="deleteNotes"
+            android:onClick="deleteNotes"/>
+
+    </android.support.v7.widget.LinearLayoutCompat>
 
     <TextView
         android:id="@+id/result"
