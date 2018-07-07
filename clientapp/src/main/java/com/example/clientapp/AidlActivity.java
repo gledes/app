@@ -58,6 +58,12 @@ public class AidlActivity extends AppCompatActivity {
 
     }
 
+    protected void onStop()
+    {
+        super.onStop();
+
+    }
+
     /**
      * 创建Person数据
      * @param num 创建多少个Person对象
