@@ -25,7 +25,7 @@ public class AccpetActivity extends AppCompatActivity {
         if (intent != null && null != intent.getData()) {
             myUri = intent.getData();
         }
-        initSqlite(myUri);
+        //initSqlite(myUri);
 
     }
 
@@ -81,6 +81,7 @@ public class AccpetActivity extends AppCompatActivity {
     public void deleteNotes(View view) {
         ContentResolver resolver = this.getContentResolver();
         resolver.delete(myUri, null, null);
+        refresh();
 
     }
 }
