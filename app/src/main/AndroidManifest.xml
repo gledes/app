@@ -4,13 +4,16 @@
 
     <permission
         android:name="com.example.notes.READ_CONRENT"
-        android:protectionLevel="dangerous"></permission>
+        android:label="Permission for read content provider"
+        android:protectionLevel="normal"></permission>
     <permission
         android:name="com.example.notes.WRITE_CONTENT"
-        android:protectionLevel="dangerous"></permission>
+        android:label="Permission for write content provider"
+        android:protectionLevel="normal"></permission>
 
     <uses-permission android:name="com.example.notes.READ_CONTENT"/>
     <uses-permission android:name="com.example.notes.WRITE_CONTENT"/>
+
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
@@ -44,14 +47,17 @@
         <provider
             android:name=".contentprovider.FirstContentProvider"
             android:authorities="jin.cp.FirstContentProvider" />
-        
+
+        <!--android:readPermission="com.example.notes.READ_CONTENT"
+            android:writePermission="com.example.notes.WRITE_CONTENT"-->
+
         <provider
             android:name="com.example.jin.myapplication.contentprovider.NotesContentProvider"
             android:authorities="com.example.jin.NotesContentProvider"
-            android:readPermission="com.example.notes.READ_CONTENT"
-            android:writePermission="com.example.notes.WRITE_CONTENT"
+            android:process=":provider"
             android:exported="true"
-            android:grantUriPermissions="true" />
+            android:grantUriPermissions="true"
+            android:writePermission="com.example.notes.WRITE_CONTENT"/>
 
         <receiver android:name=".broadcast.TestReceiver">
 
