@@ -39,11 +39,11 @@ public class AccpetActivity extends AppCompatActivity {
             resolver.insert(uri, values);
         }
 
-        refresh();
+        refresh(null);
 
     }
 
-    private void refresh()
+    public void refresh(View view)
     {
         ContentResolver resolver = this.getContentResolver();
         Cursor cursor = resolver.query(myUri, null, null, null, null);
@@ -74,14 +74,14 @@ public class AccpetActivity extends AppCompatActivity {
         }
         cursor.close();
 
-        refresh();
+        refresh(null);
 
     }
 
     public void deleteNotes(View view) {
         ContentResolver resolver = this.getContentResolver();
         resolver.delete(myUri, null, null);
-        refresh();
+        refresh(null);
 
     }
 
