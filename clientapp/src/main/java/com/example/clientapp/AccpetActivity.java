@@ -84,4 +84,14 @@ public class AccpetActivity extends AppCompatActivity {
         refresh();
 
     }
+
+    public void grantClientapp2(View view) {
+        Intent intent = new Intent();
+        intent.setClassName("com.example.clientapp2", "com.example.clientapp2.MainActivity");
+        Uri data = Uri.parse("content://com.example.jin.NotesContentProvider/notes");
+        intent.setData(data);
+        intent.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+        intent.addFlags(Intent.FLAG_GRANT_WRITE_URI_PERMISSION);
+        startActivity(intent);
+    }
 }
