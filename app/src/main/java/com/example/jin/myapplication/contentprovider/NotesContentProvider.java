@@ -82,6 +82,7 @@ public class NotesContentProvider extends ContentProvider {
 
     @Override
     public boolean onCreate() {
+        Log.i(MainActivity.tag, "provider");
         dataBaseHelper = new DataBaseHepler(getContext());
         return true;
     }
