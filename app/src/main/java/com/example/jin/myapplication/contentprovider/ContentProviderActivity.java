@@ -59,4 +59,10 @@ public class ContentProviderActivity extends Activity {
             }
         });
     }
+
+    protected void noteActivity(View v) {
+        Intent intent = new Intent();
+        intent.setClass(this, NoteActivity.class);
+        startActivity(intent);
+    }
 }
