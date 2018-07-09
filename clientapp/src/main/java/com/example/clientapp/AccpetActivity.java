@@ -90,7 +90,8 @@ public class AccpetActivity extends AppCompatActivity {
         intent.setClassName("com.example.clientapp2", "com.example.clientapp2.MainActivity");
         Uri data = Uri.parse("content://com.example.jin.NotesContentProvider/notes");
         intent.setData(data);
-        intent.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
         intent.addFlags(Intent.FLAG_GRANT_WRITE_URI_PERMISSION);
         startActivity(intent);
     }
