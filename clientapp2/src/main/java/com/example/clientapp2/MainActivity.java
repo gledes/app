@@ -15,7 +15,7 @@ public class MainActivity extends AppCompatActivity {
 
     public final static String TAG = MainActivity.class.getSimpleName();
 
-    private Uri myUri;
+    private Uri myUri = Uri.parse("content://com.example.jin.NotesContentProvider/notes");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

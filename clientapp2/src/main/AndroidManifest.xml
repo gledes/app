@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.clientapp2">
+    package="com.example.clientapp2"
+    android:sharedUserId="com.example.jin.myapplication">
 
     <application
         android:allowBackup="true"
