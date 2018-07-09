@@ -6,11 +6,37 @@
     android:layout_height="match_parent"
     tools:context="com.example.jin.myapplication.contentprovider.NoteActivity">
 
-    <Button
+    <android.support.v7.widget.LinearLayoutCompat
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="grant permission"
-        android:onClick="GrantPermissionForTest"/>
+        android:layout_height="match_parent">
+
+
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="grant permission"
+            android:onClick="GrantPermissionForTest"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="refresh"
+            android:onClick="refresh"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="insert notes"
+            android:onClick="insertNotes"/>
+
+    </android.support.v7.widget.LinearLayoutCompat>
+
+    <TextView
+        android:id="@+id/result"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
 
 </android.support.constraint.ConstraintLayout>

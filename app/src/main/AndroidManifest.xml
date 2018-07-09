@@ -11,8 +11,8 @@
         android:label="Permission for write content provider"
         android:protectionLevel="normal"></permission>
 
-    <uses-permission android:name="com.example.notes.READ_CONTENT"/>
-    <uses-permission android:name="com.example.notes.WRITE_CONTENT"/>
+    <!--<uses-permission android:name="com.example.notes.READ_CONTENT"/>-->
+    <!--<uses-permission android:name="com.example.notes.WRITE_CONTENT"/>-->
 
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
