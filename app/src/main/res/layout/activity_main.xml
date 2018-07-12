@@ -4,89 +4,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/startButtn"
+    <ListView
+        android:id="@+id/list_view"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/start_btn"
-        />
+        android:layout_height="match_parent">
+    </ListView>
 
-    <Button
-        android:id="@+id/endBubttn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/end_btn"
-        />
 
-    <Button
-        android:id="@+id/progress"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="progress bar"/>
 
-    <Button
-        android:id="@+id/handerThreadTest"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Hadler Thread"/>
-
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="hadlerThread2"
-        android:text="Hadler Thread2"/>
-
-    <Button
-        android:id="@+id/sqliteTest"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="SQLite Test"/>
-
-    <Button
-        android:id="@+id/contentProvider"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Content Provider"/>
-
-    <Button
-        android:id="@+id/broadcast"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Broadcast"/>
-
-    <Button
-        android:id="@+id/service"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Service"/>
-
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Intent Service"
-        android:onClick="intentService"/>
-
-    <Button
-        android:id="@+id/webviewTest"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Web View"/>
-
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Notification"
-        android:onClick="Notification"/>
-
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Float Window"
-        android:onClick="floatWindow"/>
-
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="ImageView"
-        android:onClick="imageView"/>
 </LinearLayout>

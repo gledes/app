@@ -4,9 +4,15 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.v4.view.LayoutInflaterFactory;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ListView;
+import android.widget.TextView;
 
 import com.example.jin.myapplication.broadcast.BroadcastActivity;
 import com.example.jin.myapplication.contentprovider.ContentProviderActivity;
@@ -19,139 +25,186 @@ import com.example.jin.myapplication.service.intentservice.IntentServiceActivity
 import com.example.jin.myapplication.sqlite.SQLiteActivity;
 import com.example.jin.myapplication.webviewfiledemo.WebViewActivity;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class MainActivity extends Activity {
 
     public static final String tag = "MyApp";
 
-    private Button startButton;
+    private List<TextData> list = new ArrayList<TextData>();
 
-    private Button endButton;
 
-    private Button progress;
+    class TextData {
 
-    private Button handleThreadTest;
+        String name;
 
-    private Button sqliteTest;
+        View.OnClickListener listener;
 
-    private Button contentProviderTest;
+        public TextData(String name) {
+            this.name = name;
+        }
 
-    private Button broadcast;
+        public TextData(String name, View.OnClickListener listener) {
+            this.name = name;
+            this.listener = listener;
+        }
 
-    private Button service;
+        public String getName() {
+            return name;
+        }
 
-    private Button webviewTest;
+        public void setName(String name) {
+            this.name = name;
+        }
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        public View.OnClickListener getListener() {
+            return listener;
+        }
 
-        startButton = (Button)findViewById(R.id.startButtn);
-        endButton = (Button)findViewById(R.id.endBubttn);
+        public void setListener(View.OnClickListener listener) {
+            this.listener = listener;
+        }
+    }
 
-        startButton.setOnClickListener(new StartButtonListener());
-        endButton.setOnClickListener(new EndButtonListener());
 
-        progress = (Button) findViewById(R.id.progress);
+    void init() {
+        list.add(new TextData("start", new StartButtonListener()));
 
-        progress.setOnClickListener(new View.OnClickListener() {
+        list.add(new TextData("end", new EndButtonListener()));
+
+        list.add(new TextData("progress bar", new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent();
                 intent.setClass(MainActivity.this, ProgressBarActivity.class);
                 MainActivity.this.startActivity(intent);
             }
-        });
+        }));
 
-        handleThreadTest = (Button)findViewById(R.id.handerThreadTest);
-        handleThreadTest.setOnClickListener(new View.OnClickListener() {
+        list.add(new TextData("Hadler Thread", new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent();
                 intent.setClass(MainActivity.this, HadlerThreadActivity.class);
                 MainActivity.this.startActivity(intent);
             }
-        });
+        }));
 
-        sqliteTest = (Button)findViewById(R.id.sqliteTest);
-        sqliteTest.setOnClickListener(new View.OnClickListener() {
+        list.add(new TextData("Hadler Thread2", new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent();
+                intent.setClass(MainActivity.this, HandlerThread2Activity.class);
+                startActivity(intent);
+            }
+        }));
+
+        list.add(new TextData("SQLite Test", new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent();
                 intent.setClass(MainActivity.this, SQLiteActivity.class);
                 MainActivity.this.startActivity(intent);
             }
-        });
+        }));
 
-        contentProviderTest = (Button)findViewById(R.id.contentProvider);
-        contentProviderTest.setOnClickListener(new View.OnClickListener() {
+        list.add(new TextData("Content Provider", new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent();
                 intent.setClass(MainActivity.this, ContentProviderActivity.class);
                 MainActivity.this.startActivity(intent);
             }
-        });
+        }));
 
-        broadcast = (Button)findViewById(R.id.broadcast);
-        broadcast.setOnClickListener(new View.OnClickListener() {
+        list.add(new TextData("Broadcast", new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent();
                 intent.setClass(MainActivity.this, BroadcastActivity.class);
                 MainActivity.this.startActivity(intent);
             }
-        });
+        }));
 
-        service = (Button)findViewById(R.id.service);
-        service.setOnClickListener(new View.OnClickListener() {
+        list.add(new TextData("Service", new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent();
                 intent.setClass(MainActivity.this, ServiceActivity.class);
                 MainActivity.this.startActivity(intent);
             }
-        });
+        }));
 
-        webviewTest = (Button)findViewById(R.id.webviewTest);
-        webviewTest.setOnClickListener(new View.OnClickListener() {
+        list.add(new TextData("Web View", new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent();
                 intent.setClass(MainActivity.this, WebViewActivity.class);
                 MainActivity.this.startActivity(intent);
             }
-        });
+        }));
+
+        list.add(new TextData("Intent Service", new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent();
+                intent.setClass(MainActivity.this, IntentServiceActivity.class);
+                MainActivity.this.startActivity(intent);
+            }
+        }));
+
+        list.add(new TextData("Notification", new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                NotificationUtils notificationUtils = new NotificationUtils(MainActivity.this);
+                notificationUtils.sendNotification("测试标题", "测试内容");
+            }
+        }));
+
+        list.add(new TextData("Float Window", new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent();
+                intent.setClass(MainActivity.this, GetFloatWindowDirectlyActivity.class);
+                MainActivity.this.startActivity(intent);
+            }
+        }));
+
+        list.add(new TextData("ImageView", new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent();
+                intent.setClass(MainActivity.this, ImageActivity.class);
+                MainActivity.this.startActivity(intent);
+            }
+        }));
+
     }
 
-    void intentService(View v) {
-        Intent intent = new Intent();
-        intent.setClass(this, IntentServiceActivity.class);
-        startActivity(intent);
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        init();
+        ArrayAdapter<TextData> adapter = new ArrayAdapter<TextData>(MainActivity.this, android.R.layout.simple_expandable_list_item_1, list) {
+
+            public View getView(int position,  View convertView, ViewGroup parent) {
+                TextData textData = (TextData)getItem(position);
+                View view = LayoutInflater.from(getContext()).inflate(android.R.layout.simple_expandable_list_item_1, null);
+                TextView textView = (TextView) view.findViewById(android.R.id.text1);
+                textView.setText(textData.getName());
+                textView.setOnClickListener(textData.getListener());
+                return view;
+            }
+        };
+        ListView listView = findViewById(R.id.list_view);
+        listView.setAdapter(adapter);
+
     }
 
-    void hadlerThread2(View v) {
-        Intent intent = new Intent();
-        intent.setClass(this, HandlerThread2Activity.class);
-        startActivity(intent);
-    }
 
-    void imageView(View v) {
-        Intent intent = new Intent();
-        intent.setClass(this, ImageActivity.class);
-        startActivity(intent);
-    }
-
-    void floatWindow(View v) {
-        Intent intent = new Intent();
-        intent.setClass(this, GetFloatWindowDirectlyActivity.class);
-        startActivity(intent);
-    }
-
-    public void Notification(View view) {
-        NotificationUtils notificationUtils = new NotificationUtils(this);
-        notificationUtils.sendNotification("测试标题", "测试内容");
-    }
 
     class StartButtonListener implements View.OnClickListener {
         public void onClick(View v) {
