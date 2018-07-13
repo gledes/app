@@ -189,13 +189,13 @@ public class MainActivity extends Activity {
 
         init();
         ArrayAdapter<TextData> adapter = new ArrayAdapter<TextData>(MainActivity.this, android.R.layout.simple_expandable_list_item_1, list) {
-
             public View getView(int position,  View convertView, ViewGroup parent) {
-                TextData textData = (TextData)getItem(position);
-                View view = LayoutInflater.from(getContext()).inflate(android.R.layout.simple_expandable_list_item_1, null);
-                TextView textView = (TextView) view.findViewById(android.R.id.text1);
-                textView.setText(textData.getName());
-                textView.setOnClickListener(textData.getListener());
+
+                View view = LayoutInflater.from(getContext()).inflate(android.R.layout.simple_expandable_list_item_1, parent, false);
+                TextView text = (TextView)view;
+                TextData item = getItem(position);
+                text.setText(item.getName());
+                text.setOnClickListener(item.getListener());
                 return view;
             }
         };
