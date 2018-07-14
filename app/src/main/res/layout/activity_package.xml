@@ -18,10 +18,10 @@
 
     </android.support.v7.widget.LinearLayoutCompat>
 
-    <TextView
-        android:id="@+id/packageinfo"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="xxxxxxx"/>
+
+    <ListView
+        android:id="@+id/package_list"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"></ListView>
 
 </android.support.constraint.ConstraintLayout>
