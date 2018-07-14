@@ -45,7 +45,7 @@ public class PackageActivity extends AppCompatActivity {
 //        TextView textView = findViewById(R.id.packageinfo);
 //        textView.setText(sb);
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(PackageActivity.this, android.R.layout.simple_expandable_list_item_1, data);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(PackageActivity.this, R.layout.item, data);
         ListView listView = findViewById(R.id.package_list);
         listView.setAdapter(adapter);
 
