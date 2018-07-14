@@ -6,18 +6,17 @@
     <permission
         android:name="com.example.notes.READ_CONTENT"
         android:label="Permission for read content provider"
-        android:protectionLevel="normal"></permission>
+        android:protectionLevel="normal" />
     <permission
         android:name="com.example.notes.WRITE_CONTENT"
         android:label="Permission for write content provider"
-        android:protectionLevel="normal"></permission>
+        android:protectionLevel="normal" />
 
-    <!--<uses-permission android:name="com.example.notes.READ_CONTENT"/>-->
-    <!--<uses-permission android:name="com.example.notes.WRITE_CONTENT"/>-->
-
+    <uses-permission android:name="com.example.notes.READ_CONTENT" />
+    <uses-permission android:name="com.example.notes.WRITE_CONTENT" />
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
+    <!-- <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" /> -->
     <!-- <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" /> -->
     <application
         android:allowBackup="true"
@@ -49,15 +48,15 @@
             android:name=".contentprovider.FirstContentProvider"
             android:authorities="jin.cp.FirstContentProvider" />
 
-        <!--android:process=":provider"-->
+        <!-- android:process=":provider" -->
         <provider
-            android:name="com.example.jin.myapplication.contentprovider.NotesContentProvider"
+            android:name=".contentprovider.NotesContentProvider"
             android:authorities="com.example.jin.NotesContentProvider"
-            android:process=":provider"
             android:exported="true"
             android:grantUriPermissions="true"
+            android:process=":provider"
             android:readPermission="com.example.notes.READ_CONTENT"
-            android:writePermission="com.example.notes.WRITE_CONTENT"/>
+            android:writePermission="com.example.notes.WRITE_CONTENT" />
 
         <receiver android:name=".broadcast.TestReceiver">
 
@@ -118,7 +117,8 @@
         </activity>
         <activity android:name=".floatwindow.GetFloatWindowDirectlyActivity" />
         <activity android:name=".images.ImageActivity" />
-        <activity android:name=".contentprovider.NoteActivity"></activity>
+        <activity android:name=".contentprovider.NoteActivity" />
+        <activity android:name=".packageinfo.PackageActivity"></activity>
     </application>
 
 </manifest>

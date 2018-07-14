@@ -20,6 +20,7 @@ import com.example.jin.myapplication.floatwindow.GetFloatWindowDirectlyActivity;
 import com.example.jin.myapplication.hadler.HandlerThread2Activity;
 import com.example.jin.myapplication.images.ImageActivity;
 import com.example.jin.myapplication.notification.NotificationUtils;
+import com.example.jin.myapplication.packageinfo.PackageActivity;
 import com.example.jin.myapplication.service.ServiceActivity;
 import com.example.jin.myapplication.service.intentservice.IntentServiceActivity;
 import com.example.jin.myapplication.sqlite.SQLiteActivity;
@@ -176,6 +177,15 @@ public class MainActivity extends Activity {
             public void onClick(View v) {
                 Intent intent = new Intent();
                 intent.setClass(MainActivity.this, ImageActivity.class);
+                MainActivity.this.startActivity(intent);
+            }
+        }));
+
+        list.add(new TextData("package info", new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent();
+                intent.setClass(MainActivity.this, PackageActivity.class);
                 MainActivity.this.startActivity(intent);
             }
         }));

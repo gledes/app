@@ -2,6 +2,9 @@ package com.example.jin.myapplication.images;
 
 import android.Manifest;
 import android.app.Activity;
+import android.app.Application;
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -13,6 +16,8 @@ import android.widget.Toast;
 
 import com.example.jin.myapplication.MainActivity;
 import com.example.jin.myapplication.R;
+
+import java.util.List;
 
 public class ImageActivity extends AppCompatActivity {
 
