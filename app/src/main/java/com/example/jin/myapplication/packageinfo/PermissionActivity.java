@@ -68,6 +68,9 @@ public class PermissionActivity extends ListActivity {
                 String[] permission = hashMap.get(dataAppList.get(position));
                 StringBuilder stringBuilder = new StringBuilder();
 
+                if (permission == null) {
+                    return;
+                }
                 try {
                     for (int i = 0; i < permission.length; i++) {
                         stringBuilder.append(getPermissionDetailSys(permission[i]) + "\n");
