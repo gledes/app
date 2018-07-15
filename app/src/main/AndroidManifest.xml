@@ -118,7 +118,9 @@
         <activity android:name=".floatwindow.GetFloatWindowDirectlyActivity" />
         <activity android:name=".images.ImageActivity" />
         <activity android:name=".contentprovider.NoteActivity" />
-        <activity android:name=".packageinfo.PackageActivity"></activity>
+        <activity android:name=".packageinfo.PackageActivity" />
+        <activity android:name=".packageinfo.PermissionActivity" />
+        <activity android:name=".packageinfo.ShowPermissionActivity"></activity>
     </application>
 
 </manifest>
