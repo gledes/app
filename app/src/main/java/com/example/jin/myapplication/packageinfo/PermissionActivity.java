@@ -9,10 +9,12 @@ import android.content.pm.PermissionGroupInfo;
 import android.content.pm.PermissionInfo;
 import android.content.pm.ResolveInfo;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 
+import com.example.jin.myapplication.MainActivity;
 import com.example.jin.myapplication.R;
 
 import java.util.ArrayList;
@@ -75,6 +77,8 @@ public class PermissionActivity extends ListActivity {
                             permission.length + " Permission(s):\n\n" + stringBuilder);
                     startActivity(intent);
                 } catch (Exception e) {
+                    Log.e(MainActivity.tag, e.toString());
+                    throw e;
                     // ToDo:Handle Exception
                 }
             }
@@ -96,23 +100,28 @@ public class PermissionActivity extends ListActivity {
      * @return string
      */
     public String getPermissionDetailSys(String permissionName) {
-        String strPermissionInfo = "";
+        StringBuilder strPermissionInfo = new StringBuilder();
+        PackageManager pm = PermissionActivity.this.getPackageManager();
+
         try {
-            PackageManager pm = PermissionActivity.this.getPackageManager();
             // get permission info by name
             PermissionInfo permissionInfo = pm.getPermissionInfo(permissionName, 0);
-            // get permission group
-            PermissionGroupInfo permissionGroupInfo = pm.getPermissionGroupInfo(
-                    permissionInfo.group, 0);
 
-            strPermissionInfo = "[" + permissionGroupInfo.loadLabel(pm).toString() + "] " +
-                    permissionInfo.loadLabel(pm).toString() + ":\n" +
-                    permissionInfo.loadDescription(pm).toString() + "\n";
+            try {
+                // get permission group
+                PermissionGroupInfo permissionGroupInfo = pm.getPermissionGroupInfo(
+                        permissionInfo.group, 0);
+                strPermissionInfo.append("[").append(permissionGroupInfo.loadLabel(pm).toString()).append("]\n ");
+            } catch (PackageManager.NameNotFoundException e) {
+
+            }
+            strPermissionInfo.append(permissionInfo.loadLabel(pm).toString()).append("(").append(permissionName).append("):\n");
+            strPermissionInfo.append(permissionInfo.loadDescription(pm)).append("\n");
         } catch (PackageManager.NameNotFoundException e) {
             // use our func if permission info not matched
             return getPermissionDetail(permissionName) + "\n";
         }
-        return strPermissionInfo;
+        return strPermissionInfo.toString();
     }
 
     /**
