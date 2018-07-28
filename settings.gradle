@@ -1,1 +1,1 @@
-include ':app', ':clientapp', ':clientapp2'
+include ':app', ':clientapp', ':clientapp2', ':alipay', ':alipaystander', ':taopiaopiao'
