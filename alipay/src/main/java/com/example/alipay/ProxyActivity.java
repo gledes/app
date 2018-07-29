@@ -12,7 +12,9 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 
 public class ProxyActivity extends Activity {
-    public static String TAG = "ProxyActivity";
+
+    private AlipayInterface alipayInterface;
+
     public String className;
 
     @Override
@@ -25,8 +27,9 @@ public class ProxyActivity extends Activity {
         try {
             Class activity = getClassLoader().loadClass(className);
             Constructor constructor = activity.getConstructor(new Class[]{});
-            AlipayInterface alipayInterface = (AlipayInterface)(constructor.newInstance());
+            alipayInterface = (AlipayInterface)(constructor.newInstance());
 //            AlipayInterface alipayInterface = (AlipayInterface)(activity.newInstance());
+            alipayInterface.attach(this);
             alipayInterface.onCreate(savedInstanceState);
 
         } catch (ClassNotFoundException e) {
@@ -43,9 +46,17 @@ public class ProxyActivity extends Activity {
 
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+        alipayInterface.onStart();
+    }
 
-
-
+    @Override
+    protected void onResume() {
+        super.onResume();
+        alipayInterface.onResume();
+    }
 
     @Override
     public ClassLoader getClassLoader() {

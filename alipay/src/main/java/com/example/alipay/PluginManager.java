@@ -7,6 +7,8 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.res.AssetManager;
 import android.content.res.Resources;
+import android.os.Environment;
+import android.util.Log;
 
 import java.io.File;
 import java.lang.reflect.InvocationTargetException;
@@ -39,13 +41,14 @@ public class PluginManager {
 
     public void load(String path) {
         File dexOutFile = context.getDir("dex", Context.MODE_PRIVATE);
+
         dexClassLoader = new DexClassLoader(path, dexOutFile.getAbsolutePath(), null,context.getClassLoader());
+
 
         PackageManager packageManager = context.getPackageManager();
         PackageInfo packageInfo = packageManager.getPackageArchiveInfo(path, PackageManager.GET_ACTIVITIES);
-//        enterActivityName = packageInfo.activities[0].name;
-        enterActivityName = "com.example.taopiaopiao.MainActivity";
-
+        enterActivityName = packageInfo.activities[0].name;
+//        enterActivityName = "com.example.taopiaopiao.MainActivity";
 
         try {
             AssetManager assetManager = AssetManager.class.newInstance();
