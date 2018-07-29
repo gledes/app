@@ -17,7 +17,7 @@ public interface AlipayInterface {
 
     public void onResume();
 
-    public void stop();
+    public void onStop();
 
     public void onDestroy();
 
