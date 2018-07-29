@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MotionEvent;
 
 import com.example.alipaystander.AlipayInterface;
 
@@ -57,6 +58,41 @@ public class ProxyActivity extends Activity {
         super.onResume();
         alipayInterface.onResume();
     }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        alipayInterface.onStop();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+//        alipayInterface.onp
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        alipayInterface.onDestroy();
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        alipayInterface.onSaveInstanceState(outState);
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        alipayInterface.onBackPressed();
+    }
+
+//    @Override
+//    public boolean onTouchEvent(MotionEvent event) {
+//        return alipayInterface.onTouchEvent(event);
+//    }
 
     @Override
     public ClassLoader getClassLoader() {
