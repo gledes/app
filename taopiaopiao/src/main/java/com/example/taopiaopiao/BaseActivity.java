@@ -1,6 +1,7 @@
 package com.example.taopiaopiao;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.view.LayoutInflater;
@@ -32,6 +33,14 @@ public class BaseActivity extends Activity implements AlipayInterface {
             return that.findViewById(id);
         }
 
+    }
+
+    @Override
+    public void startActivity(Intent intent) {
+//        Intent newIntent = new Intent();
+//        newIntent.putExtra("className", intent.getComponent().getClassName());
+        intent.putExtra("className", intent.getComponent().getClassName());
+        that.startActivity(intent);
     }
 
     @Override
