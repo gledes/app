@@ -97,21 +97,38 @@ public class BaseActivity extends Activity implements AlipayInterface {
     @Override
     public void onStart() {
 
+        if (that == null) {
+            super.onStart();
+        } else {
+
+        }
     }
 
     @Override
     public void onResume() {
+        if (that == null) {
+            super.onResume();
+        } else {
 
+        }
     }
 
     @Override
-    public void stop() {
+    public void onStop() {
+        if (that == null) {
+            super.onStop();
+        } else {
 
+        }
     }
 
     @Override
     public void onDestroy() {
+        if (that == null) {
+            super.onDestroy();
+        } else {
 
+        }
     }
 
     @Override
