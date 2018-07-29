@@ -103,4 +103,12 @@ public class ProxyActivity extends Activity {
     public Resources getResources() {
         return PluginManager.getInstance().getResources();
     }
+
+    @Override
+    public void startActivity(Intent intent) {
+        String className = intent.getStringExtra("className");
+        Intent newIntent = new Intent(this, ProxyActivity.class);
+        newIntent.putExtra("className", className);
+        super.startActivity(intent);
+    }
 }
