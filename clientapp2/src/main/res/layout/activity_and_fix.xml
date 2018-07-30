@@ -4,43 +4,31 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.clientapp2.MainActivity">
+    tools:context="com.example.clientapp2.AndFixActivity">
+
 
     <android.support.v7.widget.LinearLayoutCompat
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="计算"
+            android:onClick="cal"/>
 
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="refresh"
-            android:onClick="refresh"/>
-
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="insert notes"
-            android:onClick="insertNotes"/>
-
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="deleteNotes"
-            android:onClick="deleteNotes"/>
-
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="andfix"
-            android:onClick="andfix"/>
-
+            android:text="修复"
+            android:onClick="fix"/>
     </android.support.v7.widget.LinearLayoutCompat>
 
     <TextView
-        android:id="@+id/result"
+        android:id="@+id/fix_result"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="40dp"
+        android:text="结果"/>
 
 </android.support.constraint.ConstraintLayout>

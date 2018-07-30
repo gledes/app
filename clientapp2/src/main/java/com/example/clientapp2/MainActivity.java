@@ -86,4 +86,10 @@ public class MainActivity extends AppCompatActivity {
         refresh(null);
 
     }
+
+    public void andfix(View view) {
+        Intent intent = new Intent();
+        intent.setClass(this, AndFixActivity.class);
+        startActivity(intent);
+    }
 }
