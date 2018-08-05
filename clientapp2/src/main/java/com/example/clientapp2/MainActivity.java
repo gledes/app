@@ -15,6 +15,12 @@ public class MainActivity extends AppCompatActivity {
 
     public final static String TAG = MainActivity.class.getSimpleName();
 
+    static {
+        System.loadLibrary("native-lib");
+        //init();
+        //init1();
+    }
+
     private Uri myUri = Uri.parse("content://com.example.jin.NotesContentProvider/notes");
 
     @Override
@@ -25,6 +31,8 @@ public class MainActivity extends AppCompatActivity {
         if (intent != null && null != intent.getData()) {
             myUri = intent.getData();
         }
+        TextView tv = findViewById(R.id.result);
+        tv.setText(jniFormC());
 //        refresh();
     }
 
@@ -92,4 +100,8 @@ public class MainActivity extends AppCompatActivity {
         intent.setClass(this, AndFixActivity.class);
         startActivity(intent);
     }
+
+    public native void test1();
+
+    public native String jniFormC();
 }
