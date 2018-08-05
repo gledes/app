@@ -2,10 +2,13 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/alipay/alipay.iml" filepath="$PROJECT_DIR$/alipay/alipay.iml" />
+      <module fileurl="file://$PROJECT_DIR$/alipaystander/alipaystander.iml" filepath="$PROJECT_DIR$/alipaystander/alipaystander.iml" />
       <module fileurl="file://$PROJECT_DIR$/app.iml" filepath="$PROJECT_DIR$/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app-app.iml" filepath="$PROJECT_DIR$/app/app-app.iml" />
       <module fileurl="file://$PROJECT_DIR$/clientapp/clientapp.iml" filepath="$PROJECT_DIR$/clientapp/clientapp.iml" />
       <module fileurl="file://$PROJECT_DIR$/clientapp2/clientapp2.iml" filepath="$PROJECT_DIR$/clientapp2/clientapp2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/taopiaopiao/taopiaopiao.iml" filepath="$PROJECT_DIR$/taopiaopiao/taopiaopiao.iml" />
     </modules>
   </component>
 </project>
