@@ -12,18 +12,7 @@
 #define LOGF(...) __android_log_print(ANDROID_LOG_FATAL,TAG ,__VA_ARGS__) // 定义LOGF类型
 
 
-extern "C"
-JNIEXPORT jstring
 
-JNICALL
-Java_com_example_jin_as_1ndk_1demo_MainActivity_stringFromJNI(
-        JNIEnv *env,
-        jobject /* this */) {
-    std::string hello = "Hello from C++";
-    env->NewStringUTF("");
-//    (*ENV).
-    return env->NewStringUTF(hello.c_str());
-}
 
 extern "C"
 JNIEXPORT void JNICALL
