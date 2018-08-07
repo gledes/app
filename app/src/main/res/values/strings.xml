@@ -4,4 +4,7 @@
     <string name="end_btn">end</string>
     <string name="title_activity_hander_thread_test">HanderThreadTest</string>
     <string name="local_service_started">local_service_started</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">hello</string>
 </resources>

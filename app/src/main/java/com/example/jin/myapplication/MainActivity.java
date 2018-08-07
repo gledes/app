@@ -17,6 +17,7 @@ import android.widget.TextView;
 import com.example.jin.myapplication.broadcast.BroadcastActivity;
 import com.example.jin.myapplication.contentprovider.ContentProviderActivity;
 import com.example.jin.myapplication.floatwindow.GetFloatWindowDirectlyActivity;
+import com.example.jin.myapplication.fragment.MainFragmentActivity;
 import com.example.jin.myapplication.hadler.HandlerThread2Activity;
 import com.example.jin.myapplication.images.ImageActivity;
 import com.example.jin.myapplication.notification.NotificationUtils;
@@ -186,6 +187,15 @@ public class MainActivity extends Activity {
             public void onClick(View v) {
                 Intent intent = new Intent();
                 intent.setClass(MainActivity.this, PackageActivity.class);
+                MainActivity.this.startActivity(intent);
+            }
+        }));
+
+        list.add(new TextData("fragment", new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent();
+                intent.setClass(MainActivity.this, MainFragmentActivity.class);
                 MainActivity.this.startActivity(intent);
             }
         }));

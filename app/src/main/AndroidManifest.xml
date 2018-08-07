@@ -120,7 +120,8 @@
         <activity android:name=".contentprovider.NoteActivity" />
         <activity android:name=".packageinfo.PackageActivity" />
         <activity android:name=".packageinfo.PermissionActivity" />
-        <activity android:name=".packageinfo.ShowPermissionActivity"></activity>
+        <activity android:name=".packageinfo.ShowPermissionActivity" />
+        <activity android:name=".fragment.MainFragmentActivity"></activity>
     </application>
 
 </manifest>
