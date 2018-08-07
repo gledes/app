@@ -25,4 +25,5 @@ public class AnotherFragment extends Fragment {
         });
         return root;
     }
+
 }

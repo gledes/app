@@ -121,7 +121,11 @@
         <activity android:name=".packageinfo.PackageActivity" />
         <activity android:name=".packageinfo.PermissionActivity" />
         <activity android:name=".packageinfo.ShowPermissionActivity" />
-        <activity android:name=".fragment.MainFragmentActivity"></activity>
+        <activity android:name=".fragment.MainFragmentActivity" />
+        <activity
+            android:name=".fragment.SliderActivity"
+            android:label="@string/title_activity_slider"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

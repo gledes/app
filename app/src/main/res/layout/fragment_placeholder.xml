@@ -17,6 +17,12 @@
         android:layout_height="wrap_content"
         android:text="open_another_activity"/>
 
+    <Button
+        android:id="@+id/btnOpenSliderActivity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="open_slider_activity"/>
+
 
 
 </LinearLayout>

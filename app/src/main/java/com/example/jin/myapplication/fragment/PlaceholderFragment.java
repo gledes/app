@@ -1,6 +1,7 @@
 package com.example.jin.myapplication.fragment;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -28,6 +29,15 @@ public class PlaceholderFragment extends Fragment {
                         .replace(R.id.container, new AnotherFragment())
                         .commit();
 
+            }
+        });
+
+        rootView.findViewById(R.id.btnOpenSliderActivity).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                startActivity(new Intent(getActivity(), SliderActivity.class));
+                Intent intent = new Intent(getActivity(), SliderActivity.class);
+                startActivity(intent);
             }
         });
         return rootView;
