@@ -1,2 +1,8 @@
+
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.alipaystander" />
+    package="com.example.alipaystander">
+
+    <!--<application android:allowBackup="true" android:label="alipaystander"-->
+        <!--android:supportsRtl="true">-->
+    <!--</application>-->
+</manifest>
