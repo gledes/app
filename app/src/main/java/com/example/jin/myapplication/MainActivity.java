@@ -4,17 +4,16 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.v4.view.LayoutInflaterFactory;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.jin.myapplication.broadcast.BroadcastActivity;
+import com.example.jin.myapplication.calculate.CalculateActivity;
 import com.example.jin.myapplication.contentprovider.ContentProviderActivity;
 import com.example.jin.myapplication.floatwindow.GetFloatWindowDirectlyActivity;
 import com.example.jin.myapplication.fragment.MainFragmentActivity;
@@ -200,6 +199,15 @@ public class MainActivity extends Activity {
             }
         }));
 
+        list.add(new TextData("calculate", new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent();
+                intent.setClass(MainActivity.this, CalculateActivity.class);
+                MainActivity.this.startActivity(intent);
+            }
+        }));
+
     }
 
     @Override
@@ -221,6 +229,7 @@ public class MainActivity extends Activity {
         };
         ListView listView = findViewById(R.id.list_view);
         listView.setAdapter(adapter);
+
 
     }
 
