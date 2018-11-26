@@ -1,16 +1,14 @@
 package com.example.handlelib;
 
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
 public class MessageQueue {
 
-    private Message[] queue = new Message[50];
-
-    private int index = 0;
-
-    private int count = 0;
+    private LinkedList<Message> queue = new LinkedList<Message>();
 
     private Lock lock = new ReentrantLock();
 
@@ -21,15 +19,12 @@ public class MessageQueue {
         lock.lock();
         Message message = null;
         try {
-            while (count <= 0) {
+            while (queue.size() == 0) {
                 condition.await();
             }
-            System.out.println("count:" + count);
-            message = queue[index];
-            index++;
-            index = index == 50 ? 0 : index;
-            count--;
-            condition.signalAll();
+            System.out.println("count:" + queue.size());
+            message = queue.getFirst();
+            queue.pop();
         } catch (InterruptedException e) {
             e.printStackTrace();
         } finally {
@@ -41,19 +36,9 @@ public class MessageQueue {
 
     public void add(Message message) {
         lock.lock();
-        try {
-            while (count == 50) {
-                condition.await();
-            }
-            queue[index] = message;
-            count++;
-            condition.signalAll();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        } finally {
-            lock.unlock();
-        }
-
+        queue.addLast(message);
+        condition.signalAll();
+        lock.unlock();
 
     }
 }
