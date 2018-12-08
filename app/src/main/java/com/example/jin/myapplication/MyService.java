@@ -16,8 +16,8 @@ public class MyService extends Service {
     }
 
     class MyBinder extends AidlTest.Stub {
-        public int getName() throws RemoteException {
-            return 123;
+        public String getName() throws RemoteException {
+            return "test";
         }
 
     }
