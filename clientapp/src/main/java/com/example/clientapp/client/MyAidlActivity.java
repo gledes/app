@@ -47,7 +47,7 @@ public class MyAidlActivity extends AppCompatActivity {
     public void test(View view) {
 
         try {
-            Toast.makeText(this, "" + aidlTest.getName(), Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, aidlTest.getName(), Toast.LENGTH_SHORT).show();
         } catch (RemoteException e) {
             e.printStackTrace();
         }
