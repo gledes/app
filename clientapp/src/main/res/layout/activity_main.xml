@@ -48,6 +48,12 @@
             android:text="insert Notes"
             android:onClick="insertNotes"/>
 
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="aidl测试"
+            android:onClick="onAidl"/>
+
     </android.support.v7.widget.LinearLayoutCompat>
 
 

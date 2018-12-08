@@ -15,6 +15,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.clientapp.client.MyAidlActivity;
 import com.mark.aidl.AidlRemote;
 import com.mark.aidl.Person;
 
@@ -69,6 +70,12 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void onAidl(View view) {
+        Intent intent = new Intent();
+        intent.setClass(MainActivity.this, MyAidlActivity.class);
+        startActivity(intent);
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -89,4 +96,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
     }
+
+
 }
