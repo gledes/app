@@ -3,7 +3,7 @@ package com.example.jin.myapplication;
 
 // Declare any non-default types here with import statements
 
-interface IMyAidlInterface {
+interface MyAidlInterface {
     String getName();
 
 //    void basicTypes(int anInt, long aLong, boolean aBoolean, float aFloat,
