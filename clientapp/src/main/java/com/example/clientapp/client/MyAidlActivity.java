@@ -56,10 +56,11 @@ public class MyAidlActivity extends AppCompatActivity {
 
     public void bindService(View view) {
 
-        Intent intent = new Intent();
+        Intent intent = new Intent("cc.abto.server");
+        intent.setPackage("com.example.jin.myapplication");
 //        intent.setComponent(new ComponentName("com.example.jin.myapplication", "com.mark.aidl.RemoteService"));
-        ComponentName componentName = new ComponentName("com.example.jin.myapplication", "com.example.jin.myapplication.MyService");
-        intent.setComponent(componentName);
+//        ComponentName componentName = new ComponentName("com.example.jin.myapplication", "com.example.jin.myapplication.service.aidlservice.MyService");
+//        intent.setComponent(componentName);
         bindService(intent, conn, Context.BIND_AUTO_CREATE);
 
     }
