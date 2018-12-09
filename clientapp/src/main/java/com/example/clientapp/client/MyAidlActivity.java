@@ -14,18 +14,18 @@ import android.widget.Toast;
 
 import com.example.clientapp.MainActivity;
 import com.example.clientapp.R;
-import com.example.jin.myapplication.IMyAidlInterface;
+import com.example.jin.myapplication.MyAidlInterface;
 
 public class MyAidlActivity extends AppCompatActivity {
 
 
-    private IMyAidlInterface myAidlInterface;
+    private MyAidlInterface myAidlInterface;
 
     ServiceConnection conn = new ServiceConnection() {
         @Override
         public void onServiceConnected(ComponentName name, IBinder service) {
             Log.d(MainActivity.TAG, "onServiceConnected");
-            myAidlInterface = IMyAidlInterface.Stub.asInterface(service);
+            myAidlInterface = MyAidlInterface.Stub.asInterface(service);
         }
 
         @Override
