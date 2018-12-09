@@ -129,9 +129,13 @@
         <activity android:name=".calculate.CalculateActivity" />
 
         <service
-            android:name=".MyService"
+            android:name=".service.aidlservice.MyService"
             android:enabled="true"
-            android:exported="true"></service>
+            android:exported="true">
+            <intent-filter>
+                <action android:name="cc.abto.server" />
+            </intent-filter>
+        </service>
     </application>
 
 </manifest>
