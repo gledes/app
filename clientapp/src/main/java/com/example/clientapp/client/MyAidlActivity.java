@@ -14,23 +14,23 @@ import android.widget.Toast;
 
 import com.example.clientapp.MainActivity;
 import com.example.clientapp.R;
-import com.example.jin.myapplication.AidlTest;
+import com.example.jin.myapplication.IMyAidlInterface;
 
 public class MyAidlActivity extends AppCompatActivity {
 
 
-    private AidlTest aidlTest;
+    private IMyAidlInterface myAidlInterface;
 
     ServiceConnection conn = new ServiceConnection() {
         @Override
         public void onServiceConnected(ComponentName name, IBinder service) {
             Log.d(MainActivity.TAG, "onServiceConnected");
-            aidlTest = AidlTest.Stub.asInterface(service);
+            myAidlInterface = IMyAidlInterface.Stub.asInterface(service);
         }
 
         @Override
         public void onServiceDisconnected(ComponentName name) {
-            aidlTest = null;
+            myAidlInterface = null;
             Log.d(MainActivity.TAG, "onServiceDisconnected");
 
         }
@@ -47,7 +47,7 @@ public class MyAidlActivity extends AppCompatActivity {
     public void test(View view) {
 
         try {
-            Toast.makeText(this, aidlTest.getName(), Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, myAidlInterface.getName(), Toast.LENGTH_SHORT).show();
         } catch (RemoteException e) {
             e.printStackTrace();
         }
