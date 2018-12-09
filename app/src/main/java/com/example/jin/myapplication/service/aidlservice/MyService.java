@@ -5,7 +5,7 @@ import android.content.Intent;
 import android.os.IBinder;
 import android.os.RemoteException;
 
-import com.example.jin.myapplication.AidlTest;
+import com.example.jin.myapplication.IMyAidlInterface;
 
 public class MyService extends Service {
     public MyService() {
@@ -17,11 +17,10 @@ public class MyService extends Service {
         return new MyBinder();
     }
 
-    class MyBinder extends AidlTest.Stub {
+    class MyBinder extends IMyAidlInterface.Stub {
         public String getName() throws RemoteException {
             return "test";
         }
-
     }
 
 }
