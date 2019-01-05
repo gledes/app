@@ -9,6 +9,7 @@
       <module fileurl="file://$PROJECT_DIR$/clientapp/clientapp.iml" filepath="$PROJECT_DIR$/clientapp/clientapp.iml" />
       <module fileurl="file://$PROJECT_DIR$/clientapp2/clientapp2.iml" filepath="$PROJECT_DIR$/clientapp2/clientapp2.iml" />
       <module fileurl="file://$PROJECT_DIR$/handlelib/handlelib.iml" filepath="$PROJECT_DIR$/handlelib/handlelib.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lib/lib.iml" filepath="$PROJECT_DIR$/lib/lib.iml" />
       <module fileurl="file://$PROJECT_DIR$/taopiaopiao/taopiaopiao.iml" filepath="$PROJECT_DIR$/taopiaopiao/taopiaopiao.iml" />
     </modules>
   </component>
