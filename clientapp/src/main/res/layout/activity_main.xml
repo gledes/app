@@ -54,6 +54,12 @@
             android:text="aidl测试"
             android:onClick="onAidl"/>
 
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="系统服务"
+            android:onClick="onSystemServer"/>
+
     </android.support.v7.widget.LinearLayoutCompat>
 
 
