@@ -3,7 +3,7 @@ package com.example;
 public class BinarySearch {
 
     public static void main(String args[]) {
-        System.out.println("ÄãºÃ");
+        System.out.println("ä½ å¥½");
         int [] array = {1, 2, 3, 5, 6, 7, 8, 13, 15, 20, 28};
 
         int result = binarySearch(array, 0, array.length, 28);

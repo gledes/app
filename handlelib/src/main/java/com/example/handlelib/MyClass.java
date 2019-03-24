@@ -3,14 +3,14 @@ package com.example.handlelib;
 public class MyClass {
 
     public static void main(String args[]) {
-        System.out.println("ÄãºÃ");
+        System.out.println("ä½ å¥½");
 
 
         Looper.prepare();
 
         final Handler handler = new Handler() {
             public void handleMessage(Message msg) {
-                System.out.println("½ÓÊÕ£º" + msg.obj);
+                System.out.println("æ¥æ”¶ï¼š" + msg.obj);
             }
         };
 
@@ -19,7 +19,7 @@ public class MyClass {
                 @Override
                 public void run() {
                     Message msg = new Message();
-                    msg.obj = "Ïß³Ì" + Thread.currentThread() + "·¢ËÍÊı¾İ";
+                    msg.obj = "çº¿ç¨‹" + Thread.currentThread() + "å‘é€æ•°æ®";
                     handler.sendMessage(msg);
                 }
             });
