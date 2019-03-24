@@ -1,1 +1,1 @@
-include ':app', ':clientapp', ':clientapp2', ':alipay', ':alipaystander', ':taopiaopiao', ':handlelib', ':lib'
+include ':app', ':clientapp', ':clientapp2', ':alipay', ':alipaystander', ':taopiaopiao', ':handlelib', ':lib', ':designpatterns'
